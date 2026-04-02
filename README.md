@@ -316,4 +316,4 @@ Opens at [http://localhost:6007](http://localhost:6007).
 
 ## License
 
-MIT © [Emiketic](https://emiketic.com)
+MIT © [EMIKETIC](https://emiketic.com)
