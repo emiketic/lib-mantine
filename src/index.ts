@@ -1,3 +1,5 @@
+'use client';
+
 export { default as ClientOnly } from './components/ClientOnly';
 export { default as ConfirmBar } from './components/ConfirmBar';
 export type { ConfirmBarProps } from './components/ConfirmBar/types';

@@ -1,3 +1,5 @@
+"use client";
+
 // src/components/ClientOnly/index.tsx
 import { useEffect, useState } from "react";
 import { LoadingOverlay } from "@mantine/core";
