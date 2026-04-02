@@ -1,28 +1,74 @@
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  ClientOnly: () => ClientOnly,
+  ConfirmBar: () => ConfirmBar_default,
+  ContentLoader: () => ContentLoader_default,
+  ImageInput: () => ImageInput_default,
+  Logo: () => Logo_default,
+  NativePDFViewer: () => NativePDFViewer,
+  NoData: () => NoData_default,
+  PageContainer: () => PageContainer_default,
+  PhoneInput: () => PhoneInput_default,
+  TextEditor: () => TextEditor_default,
+  ThemeToggle: () => ThemeToggle_default
+});
+module.exports = __toCommonJS(src_exports);
+
 // src/components/ClientOnly/index.tsx
-import { useEffect, useState } from "react";
-import { LoadingOverlay } from "@mantine/core";
-import { jsx } from "react/jsx-runtime";
+var import_react = require("react");
+var import_core = require("@mantine/core");
+var import_jsx_runtime = require("react/jsx-runtime");
 function ClientOnly({
   children,
   withLoader = false,
   ...delegated
 }) {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {
+  const [hasMounted, setHasMounted] = (0, import_react.useState)(false);
+  (0, import_react.useEffect)(() => {
     setHasMounted(true);
   }, []);
   if (!hasMounted) {
     if (withLoader) {
-      return /* @__PURE__ */ jsx(LoadingOverlay, {});
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_core.LoadingOverlay, {});
     }
     return null;
   }
-  return /* @__PURE__ */ jsx("div", { ...delegated, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { ...delegated, children });
 }
 
 // src/components/ConfirmBar/index.tsx
-import { Box, Button, Group } from "@mantine/core";
-import { jsx as jsx2, jsxs } from "react/jsx-runtime";
+var import_core2 = require("@mantine/core");
+var import_jsx_runtime2 = require("react/jsx-runtime");
 function ConfirmBar({
   onConfirm = () => {
   },
@@ -35,10 +81,10 @@ function ConfirmBar({
   withCancel = true,
   ...props
 }) {
-  return /* @__PURE__ */ jsx2(Box, { ...props, children: /* @__PURE__ */ jsxs(Group, { h: "100%", justify: "flex-end", align: "center", children: [
-    withCancel ? /* @__PURE__ */ jsx2(Button, { onClick: () => onCancel(), variant: "subtle", children: labelProps?.cancel ?? "Cancel" }) : null,
-    /* @__PURE__ */ jsx2(
-      Button,
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_core2.Box, { ...props, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_core2.Group, { h: "100%", justify: "flex-end", align: "center", children: [
+    withCancel ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_core2.Button, { onClick: () => onCancel(), variant: "subtle", children: labelProps?.cancel ?? "Cancel" }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      import_core2.Button,
       {
         onClick: () => onConfirm(),
         disabled,
@@ -53,9 +99,9 @@ function ConfirmBar({
 var ConfirmBar_default = ConfirmBar;
 
 // src/components/ContentLoader/index.tsx
-import { Fragment } from "react";
-import { Skeleton, Space, Stack } from "@mantine/core";
-import { jsx as jsx3, jsxs as jsxs2 } from "react/jsx-runtime";
+var import_react2 = require("react");
+var import_core3 = require("@mantine/core");
+var import_jsx_runtime3 = require("react/jsx-runtime");
 function ContentLoader({
   numberOfBars = 3,
   numberOfBarGroups = 3,
@@ -69,25 +115,25 @@ function ContentLoader({
   if (!visible) {
     return null;
   }
-  return /* @__PURE__ */ jsxs2(Stack, { gap: "sm", px: "5rem", py: "md", ...props, children: [
-    withCircle ? /* @__PURE__ */ jsx3(Skeleton, { height: 70, circle: true, mb: "xl" }) : null,
-    Array.from({ length: numberOfBarGroups }).map((_, index) => /* @__PURE__ */ jsxs2(Fragment, { children: [
-      Array.from({ length: Math.ceil(numberOfBars / numberOfBarGroups) }).map((_2, index2) => /* @__PURE__ */ jsxs2(Fragment, { children: [
-        /* @__PURE__ */ jsx3(Skeleton, { height: barHeight, radius: "xl" }),
-        /* @__PURE__ */ jsx3(Skeleton, { height: barHeight, mt: barSpacing, radius: "xl" }),
-        /* @__PURE__ */ jsx3(Skeleton, { height: barHeight, mt: barSpacing, width: "70%", radius: "xl" })
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_core3.Stack, { gap: "sm", px: "5rem", py: "md", ...props, children: [
+    withCircle ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_core3.Skeleton, { height: 70, circle: true, mb: "xl" }) : null,
+    Array.from({ length: numberOfBarGroups }).map((_, index) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_react2.Fragment, { children: [
+      Array.from({ length: Math.ceil(numberOfBars / numberOfBarGroups) }).map((_2, index2) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_react2.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_core3.Skeleton, { height: barHeight, radius: "xl" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_core3.Skeleton, { height: barHeight, mt: barSpacing, radius: "xl" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_core3.Skeleton, { height: barHeight, mt: barSpacing, width: "70%", radius: "xl" })
       ] }, index2)),
-      /* @__PURE__ */ jsx3(Space, { h: barGroupSpacing })
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_core3.Space, { h: barGroupSpacing })
     ] }, index))
   ] });
 }
 var ContentLoader_default = ContentLoader;
 
 // src/components/ImageInput/index.tsx
-import { useEffect as useEffect2, useState as useState2 } from "react";
-import { ActionIcon, Avatar, FileInput, Group as Group2, Image as Image2, Paper } from "@mantine/core";
-import { IconUpload } from "@tabler/icons-react";
-import { jsx as jsx4, jsxs as jsxs3 } from "react/jsx-runtime";
+var import_react3 = require("react");
+var import_core4 = require("@mantine/core");
+var import_icons_react = require("@tabler/icons-react");
+var import_jsx_runtime4 = require("react/jsx-runtime");
 var DEFAULT_MAX_FILE_SIZE_BYTES = 5e5;
 var isClient = () => typeof window !== "undefined";
 function ImageInput({
@@ -96,11 +142,11 @@ function ImageInput({
   maxFileSizeBytes = DEFAULT_MAX_FILE_SIZE_BYTES,
   ...props
 }) {
-  const [imageUrl, setImageUrl] = useState2(null);
+  const [imageUrl, setImageUrl] = (0, import_react3.useState)(null);
   const largeFile = isClient() && value && value instanceof File && value.size >= maxFileSizeBytes;
   const isFileValue = isClient() && value instanceof File;
   const isString = typeof value == "string";
-  useEffect2(() => {
+  (0, import_react3.useEffect)(() => {
     if (isFileValue) {
       setImageUrl(URL.createObjectURL(value));
     } else if (isString) {
@@ -108,8 +154,8 @@ function ImageInput({
     }
   }, [value, isFileValue, isString]);
   if (props.disabled && !isFileValue) {
-    return /* @__PURE__ */ jsx4(
-      Avatar,
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      import_core4.Avatar,
       {
         size: "xl",
         src: imageUrl,
@@ -117,9 +163,9 @@ function ImageInput({
       }
     );
   }
-  return /* @__PURE__ */ jsxs3(Group2, { children: [
-    withPreview && /* @__PURE__ */ jsx4(Paper, { radius: "md", p: "sm", withBorder: true, children: /* @__PURE__ */ jsx4(
-      Image2,
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_core4.Group, { children: [
+    withPreview && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_core4.Paper, { radius: "md", p: "sm", withBorder: true, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      import_core4.Image,
       {
         w: "5rem",
         h: "5rem",
@@ -129,11 +175,11 @@ function ImageInput({
         ...props.previewProps
       }
     ) }),
-    /* @__PURE__ */ jsx4(
-      FileInput,
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      import_core4.FileInput,
       {
         styles: { input: { fontSize: "var(--mantine-font-size-xs)" } },
-        leftSection: /* @__PURE__ */ jsx4(ActionIcon, { variant: "light", size: "xs", color: "gray", children: /* @__PURE__ */ jsx4(IconUpload, {}) }),
+        leftSection: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_core4.ActionIcon, { variant: "light", size: "xs", color: "gray", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_icons_react.IconUpload, {}) }),
         placeholder: "Upload",
         error: largeFile ? `File size must be under ${maxFileSizeBytes / 1e3} KB` : void 0,
         onChange: (file) => {
@@ -150,12 +196,12 @@ function ImageInput({
 var ImageInput_default = ImageInput;
 
 // src/components/Logo/index.tsx
-import { useEffect as useEffect3, useState as useState3 } from "react";
-import { Avatar as Avatar2, ThemeIcon } from "@mantine/core";
+var import_react4 = require("react");
+var import_core6 = require("@mantine/core");
 
 // src/utils/colors.ts
-import chroma from "chroma-js";
-import { darken, lighten } from "@mantine/core";
+var import_chroma_js = __toESM(require("chroma-js"));
+var import_core5 = require("@mantine/core");
 function loadImage(imageUrl) {
   return new Promise((resolve, reject) => {
     const image = new Image();
@@ -177,7 +223,7 @@ function extractQuantizedPixels(imageData) {
     const red = quantizeChannel(imageData[index] ?? 0);
     const green = quantizeChannel(imageData[index + 1] ?? 0);
     const blue = quantizeChannel(imageData[index + 2] ?? 0);
-    colors.push(chroma(red, green, blue).hex());
+    colors.push((0, import_chroma_js.default)(red, green, blue).hex());
   }
   return colors;
 }
@@ -194,7 +240,7 @@ function extractEdgeQuantizedPixels(imageData, width, height) {
       const red = quantizeChannel(imageData[pixelIndex] ?? 0);
       const green = quantizeChannel(imageData[pixelIndex + 1] ?? 0);
       const blue = quantizeChannel(imageData[pixelIndex + 2] ?? 0);
-      edgeColors.push(chroma(red, green, blue).hex());
+      edgeColors.push((0, import_chroma_js.default)(red, green, blue).hex());
     }
   }
   return edgeColors;
@@ -233,7 +279,7 @@ var getDominantColorFromImageUrl = async (imageUrl, fallbackDominantColor = "#00
     const edgePixels = extractEdgeQuantizedPixels(imageData, canvas.width, canvas.height);
     const background = getMostFrequentColor(edgePixels) ?? getMostFrequentColor(allPixels);
     const dominant = getMostFrequentColor(
-      background ? allPixels.filter((hex) => chroma.distance(hex, background, "rgb") > 28) : allPixels
+      background ? allPixels.filter((hex) => import_chroma_js.default.distance(hex, background, "rgb") > 28) : allPixels
     ) ?? getMostFrequentColor(allPixels);
     return {
       dominant: dominant ?? fallbackDominantColor,
@@ -245,14 +291,14 @@ var getDominantColorFromImageUrl = async (imageUrl, fallbackDominantColor = "#00
 };
 
 // src/components/Logo/index.tsx
-import { IconBuildingSkyscraper as IconFallback } from "@tabler/icons-react";
-import { jsx as jsx5 } from "react/jsx-runtime";
+var import_icons_react2 = require("@tabler/icons-react");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 function Logo({ withColorPair = true, ...props }) {
-  const [logoColorPair, setLogoColorPair] = useState3({
+  const [logoColorPair, setLogoColorPair] = (0, import_react4.useState)({
     dominant: "#000000",
     background: "#ffffff"
   });
-  useEffect3(() => {
+  (0, import_react4.useEffect)(() => {
     let isMounted = true;
     if (props.src && withColorPair) {
       getDominantColorFromImageUrl(props.src).then(({ dominant, background }) => {
@@ -267,8 +313,8 @@ function Logo({ withColorPair = true, ...props }) {
       isMounted = false;
     };
   }, [props.src, withColorPair]);
-  return /* @__PURE__ */ jsx5(
-    Avatar2,
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+    import_core6.Avatar,
     {
       size: "5rem",
       radius: "lg",
@@ -282,16 +328,16 @@ function Logo({ withColorPair = true, ...props }) {
       },
       imageProps: { referrerPolicy: "no-referrer" },
       ...props,
-      children: /* @__PURE__ */ jsx5(ThemeIcon, { variant: "transparent", size: "5rem", children: /* @__PURE__ */ jsx5(IconFallback, { size: 48 * 1.5, stroke: 1 }) })
+      children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_core6.ThemeIcon, { variant: "transparent", size: "5rem", children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_icons_react2.IconBuildingSkyscraper, { size: 48 * 1.5, stroke: 1 }) })
     }
   );
 }
 var Logo_default = Logo;
 
 // src/components/NativePDFViewer/index.tsx
-import { useState as useState4 } from "react";
-import { Box as Box2, Center, Loader } from "@mantine/core";
-import { jsx as jsx6, jsxs as jsxs4 } from "react/jsx-runtime";
+var import_react5 = require("react");
+var import_core7 = require("@mantine/core");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 function getBrowser() {
   const { userAgent } = navigator;
   const isSafari = /^((?!chrome|android).)*safari/i.test(userAgent);
@@ -311,7 +357,7 @@ function NativePDFViewer({
   withToolbar = true,
   fallback = "Cannot display PDF on this browser. Use a different browser or download the PDF."
 }) {
-  const [loading, setLoading] = useState4(false);
+  const [loading, setLoading] = (0, import_react5.useState)(false);
   const toolbarHeight = {
     Safari: 0,
     Edge: 40,
@@ -330,8 +376,8 @@ function NativePDFViewer({
   if (!mediaUrl) {
     return null;
   }
-  return /* @__PURE__ */ jsxs4(
-    Box2,
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    import_core7.Box,
     {
       w: "100%",
       h: toolbarHeight ? `calc(100% + ${toolbarHeight}px)` : "100%",
@@ -339,8 +385,8 @@ function NativePDFViewer({
         transform: toolbarHeight ? `translateY(-${toolbarHeight}px)` : void 0
       },
       children: [
-        loading ? /* @__PURE__ */ jsx6(Center, { h: "100%", w: "100%", children: /* @__PURE__ */ jsx6(Loader, { size: "xl" }) }) : null,
-        /* @__PURE__ */ jsx6(
+        loading ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_core7.Center, { h: "100%", w: "100%", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_core7.Loader, { size: "xl" }) }) : null,
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
           "object",
           {
             data: `${mediaUrl}${optionsString}`,
@@ -349,7 +395,7 @@ function NativePDFViewer({
             height: "100%",
             onLoad: () => setLoading(false),
             onError: () => setLoading(false),
-            children: /* @__PURE__ */ jsx6(Box2, { children: renderFallback() })
+            children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_core7.Box, { children: renderFallback() })
           }
         )
       ]
@@ -358,16 +404,16 @@ function NativePDFViewer({
 }
 
 // src/components/NoData/index.tsx
-import { Alert, Center as Center2 } from "@mantine/core";
-import { jsx as jsx7 } from "react/jsx-runtime";
+var import_core8 = require("@mantine/core");
+var import_jsx_runtime7 = require("react/jsx-runtime");
 function NoData({ title, children, alertProps, ...props }) {
-  return /* @__PURE__ */ jsx7(Center2, { h: "100%", ...props, children: /* @__PURE__ */ jsx7(Alert, { p: "3rem", title: title ?? "No data", ...alertProps, children: /* @__PURE__ */ jsx7(Center2, { children }) }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_core8.Center, { h: "100%", ...props, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_core8.Alert, { p: "3rem", title: title ?? "No data", ...alertProps, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_core8.Center, { children }) }) });
 }
 var NoData_default = NoData;
 
 // src/components/PageContainer/index.tsx
-import { Box as Box3, Container, Group as Group3, ScrollArea, Stack as Stack2, Title } from "@mantine/core";
-import { jsx as jsx8, jsxs as jsxs5 } from "react/jsx-runtime";
+var import_core9 = require("@mantine/core");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 function PageContainer({
   children,
   title,
@@ -383,7 +429,7 @@ function PageContainer({
 }) {
   function getTitle() {
     if (title) {
-      return /* @__PURE__ */ jsx8(Title, { order: 2, ...titleProps, children: title });
+      return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_core9.Title, { order: 2, ...titleProps, children: title });
     }
     return null;
   }
@@ -391,64 +437,61 @@ function PageContainer({
     if (header) {
       return header;
     }
-    return /* @__PURE__ */ jsxs5(Group3, { justify: "space-between", w: "100%", ...headerProps, children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_core9.Group, { justify: "space-between", w: "100%", ...headerProps, children: [
       getTitle(),
       rightSection
     ] });
   }
   function getContent() {
     if (fullPage) {
-      return /* @__PURE__ */ jsx8(Box3, { ...contentProps, children });
+      return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_core9.Box, { ...contentProps, children });
     }
-    return /* @__PURE__ */ jsxs5(Stack2, { gap: "xl", ...outerContentProps, children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_core9.Stack, { gap: "xl", ...outerContentProps, children: [
       getHeader(),
-      /* @__PURE__ */ jsx8(Stack2, { px: "xl", py: "lg", h: "100%", w: "100%", ...contentProps, children })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_core9.Stack, { px: "xl", py: "lg", h: "100%", w: "100%", ...contentProps, children })
     ] });
   }
   if (withContentScroll) {
-    return /* @__PURE__ */ jsx8(ScrollArea, { h: "100vh", p: 0, ...props, children: /* @__PURE__ */ jsx8(Container, { fluid: true, children: getContent() }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_core9.ScrollArea, { h: "100vh", p: 0, ...props, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_core9.Container, { fluid: true, children: getContent() }) });
   }
-  return /* @__PURE__ */ jsx8(Container, { p: 0, w: "100%", fluid: true, children: getContent() });
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_core9.Container, { p: 0, w: "100%", fluid: true, children: getContent() });
 }
 var PageContainer_default = PageContainer;
 
 // src/components/PhoneInput/index.tsx
-import { useEffect as useEffect4, useState as useState5 } from "react";
-import { getCountryData, getEmojiFlag } from "countries-list";
-import parsePhoneNumber, {
-  getCountries,
-  getCountryCallingCode
-} from "libphonenumber-js";
-import { Group as Group4, Select, TextInput } from "@mantine/core";
-import { Fragment as Fragment2, jsx as jsx9, jsxs as jsxs6 } from "react/jsx-runtime";
-var COUNTRY_CODES = getCountries();
+var import_react6 = require("react");
+var import_countries_list = require("countries-list");
+var import_libphonenumber_js = __toESM(require("libphonenumber-js"));
+var import_core10 = require("@mantine/core");
+var import_jsx_runtime9 = require("react/jsx-runtime");
+var COUNTRY_CODES = (0, import_libphonenumber_js.getCountries)();
 function PhoneInput({ value, defaultValue, defaultCountryCode, ...props }) {
   const valueNumber = value ?? "";
-  const valueNumberData = parsePhoneNumber(valueNumber);
+  const valueNumberData = (0, import_libphonenumber_js.default)(valueNumber);
   let valueNumberCountryCode;
   if (valueNumberData?.isValid()) {
     valueNumberCountryCode = valueNumberData.country;
   }
-  const [selectedCountryCode, setSelectedCountryCode] = useState5(
+  const [selectedCountryCode, setSelectedCountryCode] = (0, import_react6.useState)(
     defaultCountryCode
   );
-  const selectedCountryCodeCallingNumber = selectedCountryCode ? getCountryCallingCode(selectedCountryCode) : void 0;
-  useEffect4(() => {
+  const selectedCountryCodeCallingNumber = selectedCountryCode ? (0, import_libphonenumber_js.getCountryCallingCode)(selectedCountryCode) : void 0;
+  (0, import_react6.useEffect)(() => {
     if (selectedCountryCode && selectedCountryCode !== valueNumberCountryCode) {
       const code = selectedCountryCode ?? defaultCountryCode ?? "";
-      const callingCode = getCountryCallingCode(code);
+      const callingCode = (0, import_libphonenumber_js.getCountryCallingCode)(code);
       if (props.onChange) {
         const numberUpdate = `+${callingCode}${valueNumber.replace(callingCode, "")}`;
-        const numberUpdateData = parsePhoneNumber(numberUpdate, selectedCountryCode);
+        const numberUpdateData = (0, import_libphonenumber_js.default)(numberUpdate, selectedCountryCode);
         if (numberUpdateData?.isValid()) {
           props.onChange(`+${callingCode}${valueNumber.replace(callingCode, "")}`);
         }
       }
     }
   }, [selectedCountryCode]);
-  return /* @__PURE__ */ jsxs6(Group4, { wrap: "nowrap", children: [
-    /* @__PURE__ */ jsx9(
-      Select,
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_core10.Group, { wrap: "nowrap", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      import_core10.Select,
       {
         label: "Country code",
         size: "sm",
@@ -463,27 +506,27 @@ function PhoneInput({ value, defaultValue, defaultCountryCode, ...props }) {
           }
         },
         data: COUNTRY_CODES.map((code) => {
-          const countryCallingCode = getCountryCallingCode(code);
-          const countryName = getCountryData(code).name;
+          const countryCallingCode = (0, import_libphonenumber_js.getCountryCallingCode)(code);
+          const countryName = (0, import_countries_list.getCountryData)(code).name;
           return {
             value: code,
-            label: `${countryName} ${getEmojiFlag(code)} +${countryCallingCode}`
+            label: `${countryName} ${(0, import_countries_list.getEmojiFlag)(code)} +${countryCallingCode}`
           };
         }),
-        rightSection: props.disabled ? /* @__PURE__ */ jsx9(Fragment2, {}) : void 0,
+        rightSection: props.disabled ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_jsx_runtime9.Fragment, {}) : void 0,
         disabled: props.disabled,
         searchable: true
       }
     ),
-    /* @__PURE__ */ jsx9(
-      TextInput,
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      import_core10.TextInput,
       {
         ...props,
         defaultValue: valueNumberData?.nationalNumber,
         onChange: (e) => {
           if (props.onChange && selectedCountryCodeCallingNumber) {
             const numberUpdate = `+${selectedCountryCodeCallingNumber}${e.currentTarget.value.replace(selectedCountryCodeCallingNumber, "")}`;
-            const numberUpdateData = parsePhoneNumber(numberUpdate, selectedCountryCode);
+            const numberUpdateData = (0, import_libphonenumber_js.default)(numberUpdate, selectedCountryCode);
             if (numberUpdateData?.isValid()) {
               props.onChange(numberUpdateData.number);
             }
@@ -496,16 +539,16 @@ function PhoneInput({ value, defaultValue, defaultCountryCode, ...props }) {
 var PhoneInput_default = PhoneInput;
 
 // src/components/TextEditor/index.tsx
-import { useEffect as useEffect5 } from "react";
-import Highlight from "@tiptap/extension-highlight";
-import SubScript from "@tiptap/extension-subscript";
-import Superscript from "@tiptap/extension-superscript";
-import TextAlign from "@tiptap/extension-text-align";
-import Underline from "@tiptap/extension-underline";
-import { useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { Link, RichTextEditor } from "@mantine/tiptap";
-import { jsx as jsx10, jsxs as jsxs7 } from "react/jsx-runtime";
+var import_react7 = require("react");
+var import_extension_highlight = __toESM(require("@tiptap/extension-highlight"));
+var import_extension_subscript = __toESM(require("@tiptap/extension-subscript"));
+var import_extension_superscript = __toESM(require("@tiptap/extension-superscript"));
+var import_extension_text_align = __toESM(require("@tiptap/extension-text-align"));
+var import_extension_underline = __toESM(require("@tiptap/extension-underline"));
+var import_react8 = require("@tiptap/react");
+var import_starter_kit = __toESM(require("@tiptap/starter-kit"));
+var import_tiptap = require("@mantine/tiptap");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 function TextEditor({
   content,
   value,
@@ -515,91 +558,85 @@ function TextEditor({
   },
   ...props
 }) {
-  const editor = useEditor({
+  const editor = (0, import_react8.useEditor)({
     editable: true,
     extensions: [
-      StarterKit,
-      Underline,
-      Link,
-      Superscript,
-      SubScript,
-      Highlight,
-      TextAlign.configure({ types: ["heading", "paragraph"] })
+      import_starter_kit.default,
+      import_extension_underline.default,
+      import_tiptap.Link,
+      import_extension_superscript.default,
+      import_extension_subscript.default,
+      import_extension_highlight.default,
+      import_extension_text_align.default.configure({ types: ["heading", "paragraph"] })
     ],
     content
   });
-  useEffect5(() => {
+  (0, import_react7.useEffect)(() => {
     onChangeEditorHTML(editor?.getHTML());
     onChange(editor?.getHTML());
   }, [editor?.state, editor, onChangeEditorHTML, onChange]);
-  return /* @__PURE__ */ jsxs7(RichTextEditor, { editor, ...props, children: [
-    /* @__PURE__ */ jsxs7(RichTextEditor.Toolbar, { sticky: true, stickyOffset: 60, children: [
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.Bold, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Italic, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Underline, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Strikethrough, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.ClearFormatting, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Highlight, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Code, {})
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor, { editor, ...props, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.Toolbar, { sticky: true, stickyOffset: 60, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Bold, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Italic, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Underline, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Strikethrough, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.ClearFormatting, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Highlight, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Code, {})
       ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.H1, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.H2, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.H3, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.H4, {})
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H1, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H2, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H3, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H4, {})
       ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.Blockquote, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Hr, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.BulletList, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.OrderedList, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Subscript, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Superscript, {})
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Blockquote, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Hr, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.BulletList, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.OrderedList, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Subscript, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Superscript, {})
       ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.Link, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Unlink, {})
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Link, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Unlink, {})
       ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignLeft, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignCenter, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignJustify, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignRight, {})
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignLeft, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignCenter, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignJustify, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignRight, {})
       ] })
     ] }),
-    /* @__PURE__ */ jsx10(RichTextEditor.Content, {})
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Content, {})
   ] });
 }
 var TextEditor_default = TextEditor;
 
 // src/components/ThemeToggle/index.tsx
-import {
-  Switch,
-  ThemeIcon as ThemeIcon2,
-  Tooltip,
-  useComputedColorScheme,
-  useMantineColorScheme
-} from "@mantine/core";
-import { IconMoon as IconSwitchDark, IconSun as IconSwitchLight } from "@tabler/icons-react";
-import { jsx as jsx11 } from "react/jsx-runtime";
+var import_core11 = require("@mantine/core");
+var import_icons_react3 = require("@tabler/icons-react");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 function ThemeToggle({ ...props }) {
-  const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme("light", { getInitialValueInEffect: true });
-  return /* @__PURE__ */ jsx11(
-    Tooltip,
+  const { setColorScheme } = (0, import_core11.useMantineColorScheme)();
+  const computedColorScheme = (0, import_core11.useComputedColorScheme)("light", { getInitialValueInEffect: true });
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    import_core11.Tooltip,
     {
       label: computedColorScheme === "light" ? "Switch to dark mode" : "Switch to light mode",
       position: "bottom",
       withinPortal: true,
-      children: /* @__PURE__ */ jsx11(ClientOnly, { children: /* @__PURE__ */ jsx11(
-        Switch,
+      children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ClientOnly, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        import_core11.Switch,
         {
           styles: { track: { cursor: "pointer" } },
           defaultChecked: computedColorScheme === "dark",
           onChange: () => setColorScheme(computedColorScheme === "light" ? "dark" : "light"),
-          onLabel: /* @__PURE__ */ jsx11(ThemeIcon2, { size: props.size ?? "sm", variant: "transparent", children: /* @__PURE__ */ jsx11(IconSwitchDark, {}) }),
-          offLabel: /* @__PURE__ */ jsx11(ThemeIcon2, { size: props.size ?? "sm", color: "yellow", variant: "transparent", children: /* @__PURE__ */ jsx11(IconSwitchLight, {}) }),
+          onLabel: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_core11.ThemeIcon, { size: props.size ?? "sm", variant: "transparent", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_icons_react3.IconMoon, {}) }),
+          offLabel: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_core11.ThemeIcon, { size: props.size ?? "sm", color: "yellow", variant: "transparent", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_icons_react3.IconSun, {}) }),
           color: "dark",
           size: "md",
           ...props
@@ -609,17 +646,18 @@ function ThemeToggle({ ...props }) {
   );
 }
 var ThemeToggle_default = ThemeToggle;
-export {
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
   ClientOnly,
-  ConfirmBar_default as ConfirmBar,
-  ContentLoader_default as ContentLoader,
-  ImageInput_default as ImageInput,
-  Logo_default as Logo,
+  ConfirmBar,
+  ContentLoader,
+  ImageInput,
+  Logo,
   NativePDFViewer,
-  NoData_default as NoData,
-  PageContainer_default as PageContainer,
-  PhoneInput_default as PhoneInput,
-  TextEditor_default as TextEditor,
-  ThemeToggle_default as ThemeToggle
-};
+  NoData,
+  PageContainer,
+  PhoneInput,
+  TextEditor,
+  ThemeToggle
+});
 //# sourceMappingURL=index.js.map

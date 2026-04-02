@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/mehdi/Desktop/next-app-template/**)",
+      "Bash(npm run:*)",
+      "Bash(pnpm run:*)",
+      "Bash(/opt/homebrew/bin/node /opt/homebrew/bin/npx tsup)",
+      "Bash(/Users/mehdi/.nvm/versions/node/v22.13.1/bin/node /Users/mehdi/.nvm/versions/node/v22.13.1/bin/npx tsup)",
+      "Bash(export PATH=\"/Users/mehdi/.nvm/versions/node/v22.13.1/bin:$PATH\")",
+      "Bash(node node_modules/.bin/tsup)",
+      "Bash(cp -r /Users/mehdi/EMIKETIC/lib-mantine/dist/* /Users/mehdi/Desktop/next-app-template/node_modules/@emiketic/lib-mantine/dist/)",
+      "Bash(cp /Users/mehdi/EMIKETIC/lib-mantine/package.json /Users/mehdi/Desktop/next-app-template/node_modules/@emiketic/lib-mantine/package.json)",
+      "Bash(node -e \"const pkg = require\\(''./node_modules/@emiketic/lib-mantine/dist/index.js''\\); console.log\\(Object.keys\\(pkg\\).slice\\(0,5\\)\\)\")"
+    ]
+  }
+}
