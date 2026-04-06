@@ -1,7 +1,6 @@
 {
-  "name": "@emiketic/lib-mantine",
-  "version": "1.2.0",
-  "description": "A collection of handy components built on Mantine components",
+  "name": "@emiketic/lib-mantine-workspace",
+  "private": true,
   "scripts": {
     "build": "pnpm --filter @emiketic/lib-mantine build",
     "dev": "pnpm --filter @emiketic/lib-mantine dev",
