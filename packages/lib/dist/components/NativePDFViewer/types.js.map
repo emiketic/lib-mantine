@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/components/NativePDFViewer/types.ts"],"sourcesContent":["import { ReactNode } from 'react';\n\nexport interface NativePDFViewerProps {\n  mediaUrl?: string;\n  title?: string;\n  zoomLevel?: number;\n  withToolbar?: boolean;\n  fallback?: ReactNode | (() => ReactNode);\n}\n"],"mappings":";;;;;;;;;;;;;;AAAA;AAAA;","names":[]}

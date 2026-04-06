@@ -1,0 +1,33 @@
+{
+  "name": "@emiketic/lib-mantine-storybook",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6007",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@emiketic/lib-mantine": "workspace:*",
+    "@mantine/core": "^9.0.1",
+    "@mantine/hooks": "^9.0.1",
+    "@mantine/notifications": "^9.0.1",
+    "@mantine/tiptap": "^9.0.1",
+    "@tiptap/extension-highlight": "^3.15.3",
+    "@tiptap/extension-subscript": "^3.15.3",
+    "@tiptap/extension-superscript": "^3.15.3",
+    "@tiptap/extension-text-align": "^3.15.3",
+    "@tiptap/extension-underline": "^3.15.3",
+    "@tiptap/react": "^3.15.3",
+    "@tiptap/starter-kit": "^3.15.3",
+    "@tabler/icons-react": "^3.40.0",
+    "next-intl": "^4.8.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.3.3",
+    "@storybook/react-vite": "^10.3.3",
+    "storybook": "^10.3.3",
+    "vite": "^5.0.0"
+  }
+}

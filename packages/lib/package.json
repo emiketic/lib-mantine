@@ -1,0 +1,80 @@
+{
+  "name": "@emiketic/lib-mantine",
+  "version": "1.4.0",
+  "description": "A collection of handy components built on Mantine components",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "pnpm run build"
+  },
+  "dependencies": {
+    "chroma-js": "^2.4.2",
+    "countries-list": "^3.0.0",
+    "libphonenumber-js": "^1.11.0"
+  },
+  "peerDependencies": {
+    "@mantine/core": ">=9.0.1",
+    "@mantine/hooks": ">=9.0.1",
+    "@mantine/notifications": ">=9.0.1",
+    "@mantine/tiptap": "^9.0.1",
+    "@tiptap/extension-highlight": "^3.0.0",
+    "@tiptap/extension-subscript": "^3.0.0",
+    "@tiptap/extension-superscript": "^3.0.0",
+    "@tiptap/extension-text-align": "^3.0.0",
+    "@tiptap/extension-underline": "^3.0.0",
+    "@tiptap/react": "^3.0.0",
+    "@tiptap/starter-kit": "^3.0.0",
+    "next-intl": ">=4.8.3",
+    "@tabler/icons-react": ">=3.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@mantine/tiptap": { "optional": true },
+    "@tiptap/extension-highlight": { "optional": true },
+    "@tiptap/extension-subscript": { "optional": true },
+    "@tiptap/extension-superscript": { "optional": true },
+    "@tiptap/extension-text-align": { "optional": true },
+    "@tiptap/extension-underline": { "optional": true },
+    "@tiptap/react": { "optional": true },
+    "@tiptap/starter-kit": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/chroma-js": "^2.4.4",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": ["mantine", "react", "ui", "components", "emiketic"],
+  "license": "MIT",
+  "author": {
+    "name": "EMIKETIC Technologies",
+    "email": "contact@emiketic.com",
+    "url": "https://www.emiketic.com"
+  }
+}
