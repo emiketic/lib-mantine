@@ -1,6 +1,6 @@
 {
   "name": "@emiketic/lib-mantine",
-  "version": "1.4.0",
+  "version": "1.2.1",
   "description": "A collection of handy components built on Mantine components",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
