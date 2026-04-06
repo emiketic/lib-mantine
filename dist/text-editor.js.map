@@ -1,1 +1,0 @@
-{"version":3,"sources":["../src/text-editor.ts"],"sourcesContent":["\"use client\";\n\nexport { default as TextEditor } from \"./components/TextEditor\";\nexport type { TextEditorProps } from \"./components/TextEditor/types\";\n"],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,wBAAsC;","names":[]}

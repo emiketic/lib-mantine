@@ -17,6 +17,8 @@ export { default as PageContainer } from "./components/PageContainer";
 export type { PageContainerProps } from "./components/PageContainer/types";
 export { default as PhoneInput } from "./components/PhoneInput";
 export type { PhoneInputProps } from "./components/PhoneInput/types";
+export { default as TextEditor } from "./components/TextEditor";
+export type { TextEditorProps } from "./components/TextEditor/types";
 export { default as ThemeToggle } from "./components/ThemeToggle";
 export type { ThemeToggleProps } from "./components/ThemeToggle/types";
 export { default as useError } from "./utils/use-error";

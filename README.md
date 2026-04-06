@@ -10,11 +10,15 @@ npm install @emiketic/lib-mantine
 
 ### Peer dependencies
 
-Make sure the following are installed in your project:
+Install the peers your components need. At minimum:
 
 ```bash
-npm install react react-dom @mantine/core @tabler/icons-react
+npm install react react-dom @mantine/core @mantine/hooks @mantine/notifications @tabler/icons-react
 ```
+
+`TextEditor` additionally needs `@mantine/tiptap` and the TipTap packages listed in this library’s `package.json` (`peerDependencies` — optional peers so other installs stay light).
+
+Wrap your app with Mantine’s `MantineProvider` so components receive the same context as your app.
 
 ### CSS
 
@@ -259,9 +263,13 @@ const [phone, setPhone] = useState('');
 
 A rich text editor built on [Tiptap](https://tiptap.dev) and [`@mantine/tiptap`](https://mantine.dev/x/tiptap/). Includes a sticky toolbar with formatting controls (bold, italic, headings, lists, links, alignment, etc.).
 
-**Import from the dedicated subpath** so your bundler only loads TipTap when you use the editor (the main package entry does not include `TextEditor`).
+**Peer dependencies:** install `@mantine/tiptap` and the TipTap packages from this library’s `peerDependencies` (they are optional peers). Example:
 
-Requires importing `@mantine/tiptap/styles.css` in your app.
+```bash
+npm install @mantine/tiptap @tiptap/react @tiptap/starter-kit @tiptap/extension-highlight @tiptap/extension-subscript @tiptap/extension-superscript @tiptap/extension-text-align @tiptap/extension-underline
+```
+
+Import `@mantine/tiptap/styles.css` in your app when you use this component.
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
@@ -273,7 +281,7 @@ Requires importing `@mantine/tiptap/styles.css` in your app.
 Also accepts all `RichTextEditorProps` from `@mantine/tiptap` (except `editor`).
 
 ```tsx
-import { TextEditor } from '@emiketic/lib-mantine/text-editor';
+import { TextEditor } from '@emiketic/lib-mantine';
 import '@mantine/tiptap/styles.css';
 
 <TextEditor

@@ -1,8 +1,8 @@
 import { defineConfig } from 'tsup';
 
 /**
- * Unbundled emit: the main `index` must not statically import TextEditor, or every
- * consumer of the package loads @mantine/tiptap (see `src/text-editor.ts` subpath).
+ * Unbundled emit: Mantine, React, and optional TipTap stay as bare imports so the
+ * consuming app resolves a single copy (peerDependencies).
  */
 export default defineConfig({
   entry: ['src/**/*.ts', 'src/**/*.tsx'],

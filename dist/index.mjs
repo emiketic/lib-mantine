@@ -8,8 +8,9 @@ import { default as default7 } from "./components/NativePDFViewer";
 import { default as default8 } from "./components/NoData";
 import { default as default9 } from "./components/PageContainer";
 import { default as default10 } from "./components/PhoneInput";
-import { default as default11 } from "./components/ThemeToggle";
-import { default as default12 } from "./utils/use-error";
+import { default as default11 } from "./components/TextEditor";
+import { default as default12 } from "./components/ThemeToggle";
+import { default as default13 } from "./utils/use-error";
 export {
   default2 as ClientOnly,
   default3 as ConfirmBar,
@@ -20,7 +21,8 @@ export {
   default8 as NoData,
   default9 as PageContainer,
   default10 as PhoneInput,
-  default11 as ThemeToggle,
-  default12 as useError
+  default11 as TextEditor,
+  default12 as ThemeToggle,
+  default13 as useError
 };
 //# sourceMappingURL=index.mjs.map
