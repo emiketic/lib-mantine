@@ -13,10 +13,8 @@ npm install @emiketic/lib-mantine
 Make sure the following are installed in your project:
 
 ```bash
-npm install react react-dom @mantine/core @mantine/notifications @tabler/icons-react next-intl
+npm install react react-dom @mantine/core @tabler/icons-react
 ```
-
-`@mantine/notifications` and `next-intl` are required if you use the `useError` hook (see [Hooks](#hooks)).
 
 ### CSS
 
@@ -303,81 +301,6 @@ import { ThemeToggle } from '@emiketic/lib-mantine';
 ```
 
 > Requires your app to use Mantine's `MantineProvider` with `colorSchemeManager` configured.
-
----
-
-## Hooks
-
-### `useError`
-
-Turns API or JavaScript errors into **localized** title and message strings, and can show them with Mantine’s `showNotification`. It is built for apps that already use **[next-intl](https://next-intl-docs.vercel.app)** and the **`Error`** messages namespace.
-
-**Setup**
-
-1. Wrap your app with `NextIntlClientProvider` (or your server messages setup) so `useTranslations("Error")` works.
-2. Mount Mantine’s notifications layer, for example `Notifications` inside `MantineProvider`, and import `@mantine/notifications/styles.css` if you use Mantine’s CSS setup.
-
-**Translation keys**
-
-- **Generic fallback** (used when no specific code matches or as defaults):  
-  `Error.APP_ERR_GENERIC.title` and `Error.APP_ERR_GENERIC.message`  
-  If those keys are missing, the hook falls back to the English strings `"Error"` and `"An error has occurred"`.
-- **Per error code**: for each code `MY_CODE`, provide `Error.MY_CODE.title` and `Error.MY_CODE.message`.  
-  The hook detects unknown codes with `tError.has(code)` and only then reads `code.title` / `code.message`.
-
-The library exports a default set of **API-style codes** as `CommonErrorCode` (for example `APP_ERR_AUTH_INVALID_CREDENTIALS`, `APP_ERR_UNAUTHORIZED`, `APP_ERR_GENERIC`, …). You can pass a generic type argument to `useError<"MY_CUSTOM_CODE">()` so TypeScript knows your extra codes.
-
-**Error shapes**
-
-- **`Error`**: the hook uses `error.message` as the translation key stem (same as `code` for `CommonError`).
-- **`CommonError`**: `{ code: string; message?: string; exception?: Error }` — the `code` field drives which `Error.*.title` / `Error.*.message` entries are used.
-
-**Hook options** (all optional)
-
-| Option | Description |
-|--------|-------------|
-| `result` | `{ title?, message?, i18nKey? }` — optional defaults; `title` / `message` override the generic fallback and act as `defaultValue` when a code-specific translation exists. |
-| `error` | If set, this `Error` or `CommonError` is used **instead of** the argument passed to `formatError` / `notifyError` when resolving the **code** for lookups. Handy when the displayed error should always match a fixed failure (e.g. from a mutation result). |
-
-**Returns**
-
-- **`formatError(err)`** — `{ title, message }` using the rules above. Pass `null` only if you rely entirely on the hook-level `error` option for resolution.
-- **`notifyError(err, color?)`** — calls `formatError`, shows a Mantine notification (default color `red`; pass another `MantineColor` or string for warnings, etc.), and `console.debug` logs the `Error` instance or the error `code`.
-
-```tsx
-import { useError } from '@emiketic/lib-mantine';
-
-function SaveButton() {
-  const { notifyError } = useError();
-
-  async function onSave() {
-    try {
-      await save();
-    } catch (e) {
-      notifyError(e instanceof Error ? e : new Error('APP_ERR_UNKNOWN'));
-    }
-  }
-
-  return <button type="button" onClick={onSave}>Save</button>;
-}
-
-// Inline copy without a toast:
-function ErrorBanner({ err }: { err: { code: string } | null }) {
-  const { formatError } = useError();
-  if (!err) return null;
-  const { title, message } = formatError(err);
-  return <p><strong>{title}</strong> — {message}</p>;
-}
-```
-
-```tsx
-// Fixed error from server result + warning-colored toast
-const { notifyError } = useError({
-  error: { code: 'APP_ERR_MEDIA_NOT_FOUND' },
-});
-
-notifyError(new Error('ignored for lookup'), 'orange');
-```
 
 ---
 

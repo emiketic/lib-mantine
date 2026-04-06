@@ -35,7 +35,7 @@ var import_jsx_runtime = require("react/jsx-runtime");
 var import_core = require("@mantine/core");
 var import_icons_react = require("@tabler/icons-react");
 var import_ClientOnly = __toESM(require("../ClientOnly"));
-function ThemeToggle({ ...props }) {
+function ThemeToggleInner({ ...props }) {
   const { setColorScheme } = (0, import_core.useMantineColorScheme)();
   const computedColorScheme = (0, import_core.useComputedColorScheme)("light", { getInitialValueInEffect: true });
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -44,7 +44,7 @@ function ThemeToggle({ ...props }) {
       label: computedColorScheme === "light" ? "Switch to dark mode" : "Switch to light mode",
       position: "bottom",
       withinPortal: true,
-      children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_ClientOnly.default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         import_core.Switch,
         {
           styles: { track: { cursor: "pointer" } },
@@ -56,9 +56,12 @@ function ThemeToggle({ ...props }) {
           size: "md",
           ...props
         }
-      ) })
+      )
     }
   );
+}
+function ThemeToggle(props) {
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_ClientOnly.default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ThemeToggleInner, { ...props }) });
 }
 var ThemeToggle_default = ThemeToggle;
 //# sourceMappingURL=index.js.map

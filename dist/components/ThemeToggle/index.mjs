@@ -8,7 +8,7 @@ import {
 } from "@mantine/core";
 import { IconMoon as IconSwitchDark, IconSun as IconSwitchLight } from "@tabler/icons-react";
 import ClientOnly from "../ClientOnly";
-function ThemeToggle({ ...props }) {
+function ThemeToggleInner({ ...props }) {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme("light", { getInitialValueInEffect: true });
   return /* @__PURE__ */ jsx(
@@ -17,7 +17,7 @@ function ThemeToggle({ ...props }) {
       label: computedColorScheme === "light" ? "Switch to dark mode" : "Switch to light mode",
       position: "bottom",
       withinPortal: true,
-      children: /* @__PURE__ */ jsx(ClientOnly, { children: /* @__PURE__ */ jsx(
+      children: /* @__PURE__ */ jsx(
         Switch,
         {
           styles: { track: { cursor: "pointer" } },
@@ -29,9 +29,12 @@ function ThemeToggle({ ...props }) {
           size: "md",
           ...props
         }
-      ) })
+      )
     }
   );
+}
+function ThemeToggle(props) {
+  return /* @__PURE__ */ jsx(ClientOnly, { children: /* @__PURE__ */ jsx(ThemeToggleInner, { ...props }) });
 }
 var ThemeToggle_default = ThemeToggle;
 export {
