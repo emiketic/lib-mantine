@@ -1,6 +1,6 @@
 {
   "name": "@emiketic/lib-mantine",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A collection of handy components built on Mantine components",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "chroma-js": "^2.4.2",
-    "@mantine/tiptap": "^9.0.0",
+    "@mantine/tiptap": "^9.0.1",
     "@tiptap/extension-highlight": "^3.0.0",
     "@tiptap/extension-subscript": "^3.0.0",
     "@tiptap/extension-superscript": "^3.0.0",
@@ -43,12 +43,15 @@
   },
   "peerDependencies": {
     "@mantine/core": ">=9.0.0",
+    "@mantine/notifications": ">=9.0.0",
+    "next-intl": ">=4.8.3",
     "@tabler/icons-react": ">=3.0.0",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
-    "@mantine/core": "^9.0.0",
+    "@mantine/core": "^9.0.1",
+    "@mantine/notifications": "^9.0.1",
     "@types/chroma-js": "^2.4.4",
     "@storybook/addon-docs": "^10.3.3",
     "@storybook/react-vite": "^10.3.3",
