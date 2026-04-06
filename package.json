@@ -1,5 +1,5 @@
 {
-  "name": "@emiketic/lib-mantine-workspace",
+  "name": "@emiketic/lib-mantine",
   "version": "1.2.0",
   "description": "A collection of handy components built on Mantine components",
   "scripts": {
