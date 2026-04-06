@@ -41,7 +41,8 @@ __export(src_exports, {
   PageContainer: () => PageContainer_default,
   PhoneInput: () => PhoneInput_default,
   TextEditor: () => TextEditor_default,
-  ThemeToggle: () => ThemeToggle_default
+  ThemeToggle: () => ThemeToggle_default,
+  useError: () => use_error_default
 });
 module.exports = __toCommonJS(src_exports);
 
@@ -647,6 +648,45 @@ function ThemeToggle({ ...props }) {
   );
 }
 var ThemeToggle_default = ThemeToggle;
+
+// src/utils/use-error/index.ts
+var import_next_intl = require("next-intl");
+var import_notifications = require("@mantine/notifications");
+function useError({
+  result,
+  error
+} = {}) {
+  const tError = (0, import_next_intl.useTranslations)("Error");
+  const formatError = (err) => {
+    const genericTitle = tError.has("APP_ERR_GENERIC.title") ? tError("APP_ERR_GENERIC.title") : "Error";
+    const genericMessage = tError.has("APP_ERR_GENERIC.message") ? tError("APP_ERR_GENERIC.message") : "An error has occurred";
+    const resolvedError = error ?? err;
+    let title = result?.title ?? genericTitle;
+    let message = result?.message ?? genericMessage;
+    const code = resolvedError?.code ?? resolvedError?.message;
+    if (tError.has(`${code}`)) {
+      title = result?.title ?? tError(`${code}.title`, { defaultValue: title });
+      message = result?.message ?? tError(`${code}.message`, { defaultValue: message });
+    }
+    return { title, message };
+  };
+  const notifyError = (err, clr) => {
+    const { title, message } = formatError(error ?? err);
+    const color = clr ?? "red";
+    (0, import_notifications.showNotification)({
+      title,
+      message,
+      color
+    });
+    if (err instanceof Error) {
+      console.debug(err);
+    } else if (err.code) {
+      console.debug(err.code);
+    }
+  };
+  return { formatError, notifyError };
+}
+var use_error_default = useError;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   ClientOnly,
@@ -659,6 +699,7 @@ var ThemeToggle_default = ThemeToggle;
   PageContainer,
   PhoneInput,
   TextEditor,
-  ThemeToggle
+  ThemeToggle,
+  useError
 });
 //# sourceMappingURL=index.js.map

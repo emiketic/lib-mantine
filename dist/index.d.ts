@@ -110,4 +110,26 @@ interface ThemeToggleProps extends SwitchProps {
 
 declare function ThemeToggle({ ...props }: ThemeToggleProps): react_jsx_runtime.JSX.Element;
 
-export { ClientOnly, ConfirmBar, type ConfirmBarProps, ContentLoader, type ContentLoaderProps, ImageInput, type ImageInputProps, Logo, type LogoProps, NativePDFViewer, type NativePDFViewerProps, NoData, type NoDataProps, PageContainer, type PageContainerProps, PhoneInput, type PhoneInputProps, TextEditor, type TextEditorProps, ThemeToggle, type ThemeToggleProps };
+type CommonErrorCode = "APP_ERR_AUTH_INVALID_CREDENTIALS" | "APP_ERR_AUTH_LOCKED" | "APP_ERR_AUTH_REDIRECT" | "APP_ERR_SIGNUP_EMAIL_ALREADY_EXISTS" | "APP_ERR_USER_NOT_FOUND" | "APP_ERR_MEDIA_NOT_FOUND" | "APP_ERR_UNAUTHORIZED" | "APP_ERR_GENERIC" | "APP_ERR_UNKNOWN";
+interface CommonError<T = CommonErrorCode> {
+    code: T;
+    message?: string;
+    exception?: Error;
+}
+
+declare function useError<T extends string = never>({ result, error, }?: {
+    result?: {
+        i18nKey?: string;
+        title?: string;
+        message?: string;
+    };
+    error?: Error | CommonError<CommonErrorCode>;
+}): {
+    formatError: (err: Error | CommonError<T | CommonErrorCode> | null) => {
+        title: string;
+        message: string;
+    };
+    notifyError: (err: Error | CommonError<T | CommonErrorCode>, clr?: MantineColor | string) => void;
+};
+
+export { ClientOnly, type CommonError, type CommonErrorCode, ConfirmBar, type ConfirmBarProps, ContentLoader, type ContentLoaderProps, ImageInput, type ImageInputProps, Logo, type LogoProps, NativePDFViewer, type NativePDFViewerProps, NoData, type NoDataProps, PageContainer, type PageContainerProps, PhoneInput, type PhoneInputProps, TextEditor, type TextEditorProps, ThemeToggle, type ThemeToggleProps, useError };

@@ -611,6 +611,45 @@ function ThemeToggle({ ...props }) {
   );
 }
 var ThemeToggle_default = ThemeToggle;
+
+// src/utils/use-error/index.ts
+import { useTranslations } from "next-intl";
+import { showNotification } from "@mantine/notifications";
+function useError({
+  result,
+  error
+} = {}) {
+  const tError = useTranslations("Error");
+  const formatError = (err) => {
+    const genericTitle = tError.has("APP_ERR_GENERIC.title") ? tError("APP_ERR_GENERIC.title") : "Error";
+    const genericMessage = tError.has("APP_ERR_GENERIC.message") ? tError("APP_ERR_GENERIC.message") : "An error has occurred";
+    const resolvedError = error ?? err;
+    let title = result?.title ?? genericTitle;
+    let message = result?.message ?? genericMessage;
+    const code = resolvedError?.code ?? resolvedError?.message;
+    if (tError.has(`${code}`)) {
+      title = result?.title ?? tError(`${code}.title`, { defaultValue: title });
+      message = result?.message ?? tError(`${code}.message`, { defaultValue: message });
+    }
+    return { title, message };
+  };
+  const notifyError = (err, clr) => {
+    const { title, message } = formatError(error ?? err);
+    const color = clr ?? "red";
+    showNotification({
+      title,
+      message,
+      color
+    });
+    if (err instanceof Error) {
+      console.debug(err);
+    } else if (err.code) {
+      console.debug(err.code);
+    }
+  };
+  return { formatError, notifyError };
+}
+var use_error_default = useError;
 export {
   ClientOnly,
   ConfirmBar_default as ConfirmBar,
@@ -622,6 +661,7 @@ export {
   PageContainer_default as PageContainer,
   PhoneInput_default as PhoneInput,
   TextEditor_default as TextEditor,
-  ThemeToggle_default as ThemeToggle
+  ThemeToggle_default as ThemeToggle,
+  use_error_default as useError
 };
 //# sourceMappingURL=index.mjs.map
