@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/components/Logo/types.ts"],"sourcesContent":["import { AvatarProps } from '@mantine/core';\n\nexport interface LogoProps extends AvatarProps {\n  /** Extract dominant color from the image and use it as a background. Defaults to true. */\n  withColorPair?: boolean;\n}\n"],"mappings":";;;;;;;;;;;;;;AAAA;AAAA;","names":[]}

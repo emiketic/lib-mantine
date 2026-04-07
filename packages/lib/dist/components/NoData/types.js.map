@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/components/NoData/types.ts"],"sourcesContent":["import { ReactNode } from 'react';\n\nimport { AlertProps, CenterProps } from '@mantine/core';\n\nexport interface NoDataProps extends CenterProps {\n  title?: string;\n  alertProps?: AlertProps;\n  children?: ReactNode;\n}\n"],"mappings":";;;;;;;;;;;;;;AAAA;AAAA;","names":[]}

@@ -1,6 +1,6 @@
 {
   "name": "@emiketic/lib-mantine",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A collection of handy components built on Mantine components",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -8,6 +8,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "source": "./src/index.ts",
       "import": {
         "types": "./dist/index.d.mts",
         "default": "./dist/index.mjs"
@@ -21,6 +22,7 @@
   },
   "files": [
     "dist",
+    "src",
     "README.md"
   ],
   "scripts": {
