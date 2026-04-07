@@ -2,7 +2,6 @@ import * as react_jsx_runtime from 'react/jsx-runtime';
 import { ReactNode } from 'react';
 import { BoxProps, MantineColor, StackProps, MantineSpacing, FileInputProps, ImageProps, AvatarProps, CenterProps, AlertProps, ScrollAreaProps, TitleProps, GroupProps, TextInputProps, SwitchProps } from '@mantine/core';
 import { CountryCode } from 'libphonenumber-js';
-import { RichTextEditorProps } from '@mantine/tiptap';
 
 declare function ClientOnly({ children, withLoader, ...delegated }: {
     children: ReactNode;
@@ -96,15 +95,6 @@ interface PhoneInputProps extends Omit<TextInputProps, 'onChange'> {
 
 declare function PhoneInput({ value, defaultValue, defaultCountryCode, ...props }: PhoneInputProps): react_jsx_runtime.JSX.Element;
 
-interface TextEditorProps extends Omit<RichTextEditorProps, 'editor' | 'onChange'> {
-    content?: string;
-    value?: string;
-    onChangeEditorHTML?: (html: string | undefined) => void;
-    onChange?: (html: string | undefined) => void;
-}
-
-declare function TextEditor({ content, value, onChangeEditorHTML, onChange, ...props }: TextEditorProps): react_jsx_runtime.JSX.Element;
-
 interface ThemeToggleProps extends SwitchProps {
 }
 
@@ -132,4 +122,4 @@ declare function useError<T extends string = never>({ result, error, }?: {
     notifyError: (err: Error | CommonError<T | CommonErrorCode>, clr?: MantineColor | string) => void;
 };
 
-export { ClientOnly, type CommonError, type CommonErrorCode, ConfirmBar, type ConfirmBarProps, ContentLoader, type ContentLoaderProps, ImageInput, type ImageInputProps, Logo, type LogoProps, NativePDFViewer, type NativePDFViewerProps, NoData, type NoDataProps, PageContainer, type PageContainerProps, PhoneInput, type PhoneInputProps, TextEditor, type TextEditorProps, ThemeToggle, type ThemeToggleProps, useError };
+export { ClientOnly, type CommonError, type CommonErrorCode, ConfirmBar, type ConfirmBarProps, ContentLoader, type ContentLoaderProps, ImageInput, type ImageInputProps, Logo, type LogoProps, NativePDFViewer, type NativePDFViewerProps, NoData, type NoDataProps, PageContainer, type PageContainerProps, PhoneInput, type PhoneInputProps, ThemeToggle, type ThemeToggleProps, useError };

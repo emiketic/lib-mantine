@@ -30,8 +30,8 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
-var index_exports = {};
-__export(index_exports, {
+var src_exports = {};
+__export(src_exports, {
   ClientOnly: () => ClientOnly,
   ConfirmBar: () => ConfirmBar_default,
   ContentLoader: () => ContentLoader_default,
@@ -41,11 +41,10 @@ __export(index_exports, {
   NoData: () => NoData_default,
   PageContainer: () => PageContainer_default,
   PhoneInput: () => PhoneInput_default,
-  TextEditor: () => TextEditor_default,
   ThemeToggle: () => ThemeToggle_default,
   useError: () => use_error_default
 });
-module.exports = __toCommonJS(index_exports);
+module.exports = __toCommonJS(src_exports);
 
 // src/components/ClientOnly/index.tsx
 var import_react = require("react");
@@ -541,105 +540,27 @@ function PhoneInput({ value, defaultValue, defaultCountryCode, ...props }) {
 }
 var PhoneInput_default = PhoneInput;
 
-// src/components/TextEditor/index.tsx
-var import_react7 = require("react");
-var import_extension_highlight = __toESM(require("@tiptap/extension-highlight"));
-var import_extension_subscript = __toESM(require("@tiptap/extension-subscript"));
-var import_extension_superscript = __toESM(require("@tiptap/extension-superscript"));
-var import_extension_text_align = __toESM(require("@tiptap/extension-text-align"));
-var import_extension_underline = __toESM(require("@tiptap/extension-underline"));
-var import_react8 = require("@tiptap/react");
-var import_starter_kit = __toESM(require("@tiptap/starter-kit"));
-var import_tiptap = require("@mantine/tiptap");
-var import_jsx_runtime10 = require("react/jsx-runtime");
-function TextEditor({
-  content,
-  value,
-  onChangeEditorHTML = () => {
-  },
-  onChange = () => {
-  },
-  ...props
-}) {
-  const editor = (0, import_react8.useEditor)({
-    editable: true,
-    extensions: [
-      import_starter_kit.default,
-      import_extension_underline.default,
-      import_tiptap.Link,
-      import_extension_superscript.default,
-      import_extension_subscript.default,
-      import_extension_highlight.default,
-      import_extension_text_align.default.configure({ types: ["heading", "paragraph"] })
-    ],
-    content
-  });
-  (0, import_react7.useEffect)(() => {
-    onChangeEditorHTML(editor?.getHTML());
-    onChange(editor?.getHTML());
-  }, [editor?.state, editor, onChangeEditorHTML, onChange]);
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor, { editor, ...props, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.Toolbar, { sticky: true, stickyOffset: 60, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Bold, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Italic, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Underline, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Strikethrough, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.ClearFormatting, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Highlight, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Code, {})
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H1, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H2, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H3, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.H4, {})
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Blockquote, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Hr, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.BulletList, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.OrderedList, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Subscript, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Superscript, {})
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Link, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Unlink, {})
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_tiptap.RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignLeft, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignCenter, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignJustify, {}),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.AlignRight, {})
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_tiptap.RichTextEditor.Content, {})
-  ] });
-}
-var TextEditor_default = TextEditor;
-
 // src/components/ThemeToggle/index.tsx
 var import_core11 = require("@mantine/core");
 var import_icons_react3 = require("@tabler/icons-react");
-var import_jsx_runtime11 = require("react/jsx-runtime");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 function ThemeToggleInner({ ...props }) {
   const { setColorScheme } = (0, import_core11.useMantineColorScheme)();
   const computedColorScheme = (0, import_core11.useComputedColorScheme)("light", { getInitialValueInEffect: true });
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     import_core11.Tooltip,
     {
       label: computedColorScheme === "light" ? "Switch to dark mode" : "Switch to light mode",
       position: "bottom",
       withinPortal: true,
-      children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         import_core11.Switch,
         {
           styles: { track: { cursor: "pointer" } },
           defaultChecked: computedColorScheme === "dark",
           onChange: () => setColorScheme(computedColorScheme === "light" ? "dark" : "light"),
-          onLabel: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_core11.ThemeIcon, { size: props.size ?? "sm", variant: "transparent", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_icons_react3.IconMoon, {}) }),
-          offLabel: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_core11.ThemeIcon, { size: props.size ?? "sm", color: "yellow", variant: "transparent", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_icons_react3.IconSun, {}) }),
+          onLabel: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_core11.ThemeIcon, { size: props.size ?? "sm", variant: "transparent", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_icons_react3.IconMoon, {}) }),
+          offLabel: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_core11.ThemeIcon, { size: props.size ?? "sm", color: "yellow", variant: "transparent", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_icons_react3.IconSun, {}) }),
           color: "dark",
           size: "md",
           ...props
@@ -649,7 +570,7 @@ function ThemeToggleInner({ ...props }) {
   );
 }
 function ThemeToggle(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ClientOnly, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ThemeToggleInner, { ...props }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ClientOnly, { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(ThemeToggleInner, { ...props }) });
 }
 var ThemeToggle_default = ThemeToggle;
 
@@ -702,7 +623,6 @@ var use_error_default = useError;
   NoData,
   PageContainer,
   PhoneInput,
-  TextEditor,
   ThemeToggle,
   useError
 });

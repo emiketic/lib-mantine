@@ -498,84 +498,6 @@ function PhoneInput({ value, defaultValue, defaultCountryCode, ...props }) {
 }
 var PhoneInput_default = PhoneInput;
 
-// src/components/TextEditor/index.tsx
-import { useEffect as useEffect5 } from "react";
-import Highlight from "@tiptap/extension-highlight";
-import SubScript from "@tiptap/extension-subscript";
-import Superscript from "@tiptap/extension-superscript";
-import TextAlign from "@tiptap/extension-text-align";
-import Underline from "@tiptap/extension-underline";
-import { useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { Link, RichTextEditor } from "@mantine/tiptap";
-import { jsx as jsx10, jsxs as jsxs7 } from "react/jsx-runtime";
-function TextEditor({
-  content,
-  value,
-  onChangeEditorHTML = () => {
-  },
-  onChange = () => {
-  },
-  ...props
-}) {
-  const editor = useEditor({
-    editable: true,
-    extensions: [
-      StarterKit,
-      Underline,
-      Link,
-      Superscript,
-      SubScript,
-      Highlight,
-      TextAlign.configure({ types: ["heading", "paragraph"] })
-    ],
-    content
-  });
-  useEffect5(() => {
-    onChangeEditorHTML(editor?.getHTML());
-    onChange(editor?.getHTML());
-  }, [editor?.state, editor, onChangeEditorHTML, onChange]);
-  return /* @__PURE__ */ jsxs7(RichTextEditor, { editor, ...props, children: [
-    /* @__PURE__ */ jsxs7(RichTextEditor.Toolbar, { sticky: true, stickyOffset: 60, children: [
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.Bold, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Italic, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Underline, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Strikethrough, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.ClearFormatting, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Highlight, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Code, {})
-      ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.H1, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.H2, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.H3, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.H4, {})
-      ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.Blockquote, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Hr, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.BulletList, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.OrderedList, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Subscript, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Superscript, {})
-      ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.Link, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.Unlink, {})
-      ] }),
-      /* @__PURE__ */ jsxs7(RichTextEditor.ControlsGroup, { children: [
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignLeft, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignCenter, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignJustify, {}),
-        /* @__PURE__ */ jsx10(RichTextEditor.AlignRight, {})
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx10(RichTextEditor.Content, {})
-  ] });
-}
-var TextEditor_default = TextEditor;
-
 // src/components/ThemeToggle/index.tsx
 import {
   Switch,
@@ -585,24 +507,24 @@ import {
   useMantineColorScheme
 } from "@mantine/core";
 import { IconMoon as IconSwitchDark, IconSun as IconSwitchLight } from "@tabler/icons-react";
-import { jsx as jsx11 } from "react/jsx-runtime";
+import { jsx as jsx10 } from "react/jsx-runtime";
 function ThemeToggleInner({ ...props }) {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme("light", { getInitialValueInEffect: true });
-  return /* @__PURE__ */ jsx11(
+  return /* @__PURE__ */ jsx10(
     Tooltip,
     {
       label: computedColorScheme === "light" ? "Switch to dark mode" : "Switch to light mode",
       position: "bottom",
       withinPortal: true,
-      children: /* @__PURE__ */ jsx11(
+      children: /* @__PURE__ */ jsx10(
         Switch,
         {
           styles: { track: { cursor: "pointer" } },
           defaultChecked: computedColorScheme === "dark",
           onChange: () => setColorScheme(computedColorScheme === "light" ? "dark" : "light"),
-          onLabel: /* @__PURE__ */ jsx11(ThemeIcon2, { size: props.size ?? "sm", variant: "transparent", children: /* @__PURE__ */ jsx11(IconSwitchDark, {}) }),
-          offLabel: /* @__PURE__ */ jsx11(ThemeIcon2, { size: props.size ?? "sm", color: "yellow", variant: "transparent", children: /* @__PURE__ */ jsx11(IconSwitchLight, {}) }),
+          onLabel: /* @__PURE__ */ jsx10(ThemeIcon2, { size: props.size ?? "sm", variant: "transparent", children: /* @__PURE__ */ jsx10(IconSwitchDark, {}) }),
+          offLabel: /* @__PURE__ */ jsx10(ThemeIcon2, { size: props.size ?? "sm", color: "yellow", variant: "transparent", children: /* @__PURE__ */ jsx10(IconSwitchLight, {}) }),
           color: "dark",
           size: "md",
           ...props
@@ -612,7 +534,7 @@ function ThemeToggleInner({ ...props }) {
   );
 }
 function ThemeToggle(props) {
-  return /* @__PURE__ */ jsx11(ClientOnly, { children: /* @__PURE__ */ jsx11(ThemeToggleInner, { ...props }) });
+  return /* @__PURE__ */ jsx10(ClientOnly, { children: /* @__PURE__ */ jsx10(ThemeToggleInner, { ...props }) });
 }
 var ThemeToggle_default = ThemeToggle;
 
@@ -664,7 +586,6 @@ export {
   NoData_default as NoData,
   PageContainer_default as PageContainer,
   PhoneInput_default as PhoneInput,
-  TextEditor_default as TextEditor,
   ThemeToggle_default as ThemeToggle,
   use_error_default as useError
 };

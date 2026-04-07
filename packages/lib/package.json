@@ -1,6 +1,6 @@
 {
   "name": "@emiketic/lib-mantine",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A collection of handy components built on Mantine components",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -16,6 +16,17 @@
       "require": {
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
+      }
+    },
+    "./text-editor": {
+      "source": "./src/text-editor.ts",
+      "import": {
+        "types": "./dist/text-editor.d.mts",
+        "default": "./dist/text-editor.mjs"
+      },
+      "require": {
+        "types": "./dist/text-editor.d.ts",
+        "default": "./dist/text-editor.js"
       }
     },
     "./package.json": "./package.json"
