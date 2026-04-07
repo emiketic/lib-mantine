@@ -1,0 +1,3 @@
+# This file exists solely to suppress the "gitignore-fallback" npm warning.
+# The "files" field in package.json (dist/, src/, README.md) is the
+# authoritative allow-list for published contents.
